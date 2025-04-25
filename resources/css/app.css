@@ -1,2 +1,21 @@
 @import "tailwindcss";
 @source "../views";
+
+/* Tambahkan ini di resources/css/app.css */
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}

@@ -61,7 +61,7 @@
                     </button>
                 </div>
             @endif
-            <form class="space-y-6" action="/login" method="POST">
+            <form class="space-y-6" action="/login-adm" method="POST">
                 @csrf
                 <div>
                     <label for="email" class="block text-xl font-medium text-gray-900">Email address</label>
@@ -102,8 +102,6 @@
                 </div>
             </form>
         </div>
-
-        <small class="block text-center mt-3">Not Registered? <a href="/register" class="font-semibold text-gray-900 hover:text-indigo-500">Register Now!</a></small>
     </div>
 </body>
 

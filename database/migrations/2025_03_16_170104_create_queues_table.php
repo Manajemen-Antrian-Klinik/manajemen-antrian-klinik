@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('queues', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->date('date');
+            $table->integer('queue_number');
+            $table->enum('status', ['Menunggu', 'Dalam Pemeriksaan', 'Selesai'])->default('Menunggu');
+            $table->text('complaint')->nullable();
+            $table->integer('daily_quota')->default(20)->after('clinic_end_time'); // Kuota harian
             $table->timestamps();
         });
     }
