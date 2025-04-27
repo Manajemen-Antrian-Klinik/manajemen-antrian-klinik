@@ -103,6 +103,24 @@
             </form>
         </div>
     </div>
-</body>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Dapatkan semua tombol dengan atribut data-dismiss-target
+        const closeButtons = document.querySelectorAll('[data-dismiss-target]');
+        
+        // Tambahkan event listener ke setiap tombol
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-dismiss-target');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.style.display = 'none';
+                }
+            });
+        });
+    });
+    </script>
+</body>
 </html>

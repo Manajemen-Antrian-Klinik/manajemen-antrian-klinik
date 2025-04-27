@@ -19,9 +19,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'address',
+        'type',
         'birth_date',
-        'phone'
+        'gender',
+        'phone',
+        'nik',
+        'bpjs_number',
+        'address',
     ];
 
     protected $guarded = ['id']; //Yang tidak boleh diisi

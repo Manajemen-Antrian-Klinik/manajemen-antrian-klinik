@@ -9,10 +9,10 @@
         <title>Klinik Hestia Medika | {{ $title }}</title>
     </head>
 
-    <body class="min-h-screen bg-gradient-to-r from-blue-100 to-blue-200 flex flex-col">
+    <body class="min-h-screen bg-gradient-to-r from-[#E8F9FF] to-[#C5BAFF] flex flex-col">
 
         <!-- Header -->
-        <header class="flex justify-between items-center p-4">
+        <header class="flex justify-between items-center p-4 container mx-auto">
             <!-- Logo Section -->
             <div class="flex items-center gap-3 ml-10">
                 <div class="border-2 border-gray-500 flex items-center justify-center w-10 h-11.5">
@@ -57,10 +57,12 @@
                         </svg>
                     </button>
                 </div>
-            
+                
                 <div x-show="open" @click.outside="open = false" x-transition class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-blue-200/90 shadow-lg focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                     <div class="py-1" role="none">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-500 hover:bg-blue-100 hover:text-gray-500 rounded-md" role="menuitem" tabindex="-1">Profile</a>
+                        @if (auth()->user()->type !== 'admin')
+                            <a href="{{ route('profile.index') }}" class="block px-4 py-2 text-sm text-gray-500 hover:bg-blue-100 hover:text-gray-500 rounded-md" role="menuitem" tabindex="-1">Profile</a>                            
+                        @endif
                         <form method="POST" action="{{ auth()->user()->type === 'admin' ? route('admin.logout') : route('logout') }}">
                             @csrf
                             <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-500 hover:bg-blue-100 hover:text-gray-500 rounded-md" role="menuitem" tabindex="-1">Logout</button>
@@ -83,7 +85,7 @@
 
 
         <!-- Footer -->
-        <footer class="bg[#FBFBFB] pr-4 pb-1 pt-1 pl-4 flex justify-between items-center ">
+        <footer class="bg[#FBFBFB] pb-1 flex justify-between items-center container mx-auto">
             <div class="text-sm font-bold ml-10">
                 <span class="text-blue-800">KLINIK</span> <span class="text-gray-800">HESTIA MEDIKA</span>
             </div>

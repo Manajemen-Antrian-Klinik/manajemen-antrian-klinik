@@ -18,7 +18,7 @@ class QueueController extends Controller
         
         $today = Carbon::today()->format('Y-m-d');
         
-        // Generate 6 hari ke depan (hari ini + 5 hari berikutnya)
+        // Generate Pendaftaran 6 hari ke depan
         $dates = collect();
         for ($i = 0; $i < 6; $i++) {
             $date = Carbon::today()->addDays($i);
@@ -30,7 +30,7 @@ class QueueController extends Controller
             ]);
         }
 
-        // Ambil SEMUA antrian untuk user yang login, diurutkan berdasarkan tanggal
+        // Ambil Semua antrian untuk user yang login, diurutkan berdasarkan tanggal
         $userQueues = Queue::where('user_id', Auth::id())
                 ->where('date', '>=', $today) // Hanya yang belum lewat
                 ->orderBy('date', 'asc')
@@ -65,6 +65,7 @@ class QueueController extends Controller
         ]);
     }
 
+    // Menyimpan data antrian setelah mendaftar
     public function store(Request $request, $date) {
         // Validasi tanggal
         if (Carbon::parse($date)->lt(Carbon::today())) {
@@ -95,6 +96,7 @@ class QueueController extends Controller
             'complaint' => $request->complaint,
         ]);
 
+        // Menuju halaman Antrian setelah mendaftar
         return redirect()
             ->route('queue.index')
             ->with('success', 'Antrian berhasil dibuat! Nomor Anda: ' . $newQueueNumber);

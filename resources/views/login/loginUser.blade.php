@@ -105,6 +105,23 @@
 
         <small class="block text-center mt-3">Not Registered? <a href="/register" class="font-semibold text-gray-900 hover:text-indigo-500">Register Now!</a></small>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dapatkan semua tombol dengan atribut data-dismiss-target
+            const closeButtons = document.querySelectorAll('[data-dismiss-target]');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-dismiss-target');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

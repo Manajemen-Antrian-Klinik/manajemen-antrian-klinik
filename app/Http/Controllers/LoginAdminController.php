@@ -8,14 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginAdminController extends Controller
-{
+{   
+    // Tampilan Halaman Login Admin
     public function index()
     {
         return view("login.loginAdmin", [
             "title" => "Login Admin",
         ]);
     }
-
+    
+    // Authentikasi Login Admin
     public function autentificate(Request $request) {
         $credentials = $request->validate([
             'email' => 'required|email:dns',
@@ -36,6 +38,7 @@ class LoginAdminController extends Controller
         return back()->with('login_error', 'Login gagal! Pastikan email dan password benar dan Anda adalah admin.');
     }
 
+    // Logout Admin
     public function logout(Request $request) {
         Auth::logout();
         $request->session()->invalidate();

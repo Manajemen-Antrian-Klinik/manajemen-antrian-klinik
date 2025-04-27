@@ -8,7 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
-{
+{   
+    // Tampilan Halaman Register User
     public function index() {
         return view('register.register', [
             'title' => 'Register',
@@ -16,6 +17,7 @@ class RegisterController extends Controller
         ]);
     }
 
+    // Menyimpan data register ke database
     public function store(Request $request) {
         $validated = $request->validate([
             'name' => 'required|max:255',
@@ -32,6 +34,7 @@ class RegisterController extends Controller
             "password" => $validated["password"]
         ]);
 
+        // Menuju halaman Login setelah Register
         return redirect('/login')->with("register_success", "Succeed to create the account, please login again");
         dd($request);
     }

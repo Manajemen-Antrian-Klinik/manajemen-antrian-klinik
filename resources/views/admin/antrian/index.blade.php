@@ -7,7 +7,7 @@
         
         <!-- Dropdown Pilih Tanggal -->
         <div class="relative">
-            <select id="date-selector" class="block appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500">
+            <select id="date-selector" class="block appearance-none bg-blue-200 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500">
                 @foreach($availableDates as $dateItem)
                 <option value="{{ $dateItem['date']->format('Y-m-d') }}" 
                     {{ $dateItem['date']->format('Y-m-d') === $selectedDate->format('Y-m-d') ? 'selected' : '' }}>
@@ -23,77 +23,77 @@
         </div>
     </div>
 
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="bg-[#C5BAFF] shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full leading-normal">
             <thead>
                 <tr>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         No. Antrian
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Nama
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Alamat
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         TTL
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         No. Telp
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Keluhan
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Status
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Aksi
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($queues as $queue)
-                <tr class="hover:bg-gray-50">
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <tr class="hover:bg-[#C5BAFF]">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap font-semibold">
                             {{ $queue->queue_number }}
                         </p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">
                             {{ $queue->patient->name }}
                         </p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">
                             {{ $queue->patient->address }}
                         </p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">
                             {{ optional($queue->patient->birth_date)->format('d-m-Y') ?? '-'}}
                         </p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">
                             {{ $queue->patient->phone }}
                         </p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">
                             {{ $queue->complaint }}
                         </p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <span class="relative inline-block px-3 py-1 font-semibold rounded-full
-                            {{ $queue->status === 'Selesai' ? 'bg-green-200 text-green-900' : 
+                            {{ $queue->status === 'Selesai' ? 'bg-green-100 text-green-800' : 
                             ($queue->status === 'Dalam Pemeriksaan' ? 'bg-orange-200 text-orange-900' : 'bg-gray-200 text-gray-900') }}">
                             {{ $queue->status }}
                         </span>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <div class="flex space-x-2">
                             <!-- Next Button -->
                             <form action="{{ route('admin.antrian.next', $queue->id) }}" method="POST">
@@ -115,11 +115,6 @@
                                 </button>
                             </form>
                             
-                            <!-- Edit Button -->
-                            <button onclick="openEditModal('{{ $queue->id }}')" class="text-white bg-green-500 hover:bg-green-600 px-3 py-1 rounded text-sm">
-                                Edit
-                            </button>
-                            
                             <!-- Delete Button -->
                             <form action="{{ route('admin.antrian.destroy', $queue->id) }}" method="POST">
                                 @csrf
@@ -136,11 +131,6 @@
             </tbody>
         </table>
     </div>
-</div>
-
-<!-- Edit Modal -->
-<div id="editModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
-    <!-- Modal content -->
 </div>
 
 <script>

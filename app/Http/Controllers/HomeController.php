@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
-{
+{   
+    // Tampilan halaman Home pada User dan Admin
     public function index()
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -26,6 +27,7 @@ class HomeController extends Controller
             'completed_queues' => $todayQueues->where('status', 'Selesai')->count()
         ];
         
+        // Tampilan Home yang berbeda untuk Admin dan User 
         if (Auth::check() && Auth::user()->type === 'admin') {
             return view('admin.home.index', [
                 'title' => 'Dashboard Admin',

@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginUserController extends Controller
-{
+{   
+    // Tampilan Halaman Login User
     public function index() {
         return view('login.LoginUser', [
             'title' => 'Login',
         ]);
     }
 
+    // Authentikasi Login User
     public function authenticate(Request $request) {
         $credentials = $request->validate([
             'email' => 'required|email:dns',
@@ -30,6 +32,7 @@ class LoginUserController extends Controller
         dd('Berhasil login');
     }
 
+    // Logout User
     public function logout(Request $request) {
         
         Auth::logout();

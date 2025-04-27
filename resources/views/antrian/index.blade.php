@@ -5,14 +5,14 @@
     <!-- Grid 6 Hari -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-3 mx-4">
         @foreach($dates as $day)
-        <div class="bg-gradient-to-r from-purple-500 to-blue-500 p-3 rounded-lg shadow-lg flex flex-col">
+        <div class="bg-[rgba(30,66,138,0.7)] p-3 rounded-lg shadow-lg flex flex-col">
             <div class="text-white font-semibold text-sm mb-1">Dr. Remy Alisa Cahyani</div>
             <div class="text-white text-xs">{{ $day['formatted_date'] }}</div>
             <div class="text-white text-xs mb-2">Sisa: {{ $day['remaining'] }} / 20</div>
             <div class="mt-auto">
                 @if($day['date'] >= $today && $day['remaining'] > 0)
                     <button onclick="showModal('{{ $day['date'] }}', '{{ $day['formatted_date'] }}')" 
-                            class="w-full py-1 px-2 bg-white text-purple-500 rounded text-xs font-semibold hover:bg-purple-100 text-center">
+                            class="w-full py-1 px-2 bg-white text-[#000000] rounded text-xs font-semibold hover:bg-purple-100 text-center">
                         DAFTAR
                     </button>
                 @else
@@ -25,8 +25,8 @@
         @endforeach
     </div>
     
-    <div class="bg-white rounded-lg shadow mx-4 flex-1 overflow-auto">
-        <h3 class="text-sm font-semibold mb-2 p-2 bg-gray-50 sticky top-0 z-10">
+    <div class="bg-[#C5BAFF] rounded-lg shadow mx-4 flex-1 overflow-auto">
+        <h3 class="text-sm font-semibold mb-2 p-2 bg-[#C5BAFF] sticky top-0 z-10">
             Jadwal Periksa Anda
         </h3>
         
@@ -37,7 +37,7 @@
         @else
             <div class="overflow-y-auto" style="max-height: calc(100vh - 320px)">
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-[#AAA2D4]">
                         <tr>
                             <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">No</th>
                             <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Tanggal Periksa</th>
@@ -46,7 +46,7 @@
                             <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-[#AAA2D4]">
                         @foreach($queues as $queue)
                         <tr>
                             <td class="px-3 py-2 whitespace-nowrap text-sm">{{ $loop->iteration }}</td>
