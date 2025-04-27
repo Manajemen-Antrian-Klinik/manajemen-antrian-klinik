@@ -2,8 +2,8 @@
 Sistem ini dirancang untuk memudahkan operasional harian di fasilitas kesehatan, mengelola pasien, antrian, serta pencatatan medis.
 
 ## Fitur Utama
-- Pendaftaran Pasien Online
-- Sistem Pengaturan Antrian
+- Pendaftaran Pasien Online*
+- Sistem Pengaturan Antrian*
 - Manajemen Rekam Medis Pasien
 - Laporan Keuangan dan Operasional Klinik
 
