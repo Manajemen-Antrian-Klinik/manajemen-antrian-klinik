@@ -12,8 +12,7 @@ Sistem ini dirancang untuk memudahkan operasional harian di fasilitas kesehatan,
 - Mysql
 - Tailwind CSS
 
-## Team Members
-Team-6
+## Anggota Tim
 | Name | Path |
 | :-----: | :---: |
 | Fadhilah Ishma Diyanah | Project Manager |
