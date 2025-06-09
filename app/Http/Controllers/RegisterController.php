@@ -23,7 +23,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:8|max:255',
-            'repeat_password' => 'required|same:password',
+            'password_confirmation' => 'required|same:password',
         ]);
         
         $validated['password'] = Hash::make($validated['password']);
@@ -36,6 +36,5 @@ class RegisterController extends Controller
 
         // Menuju halaman Login setelah Register
         return redirect('/login')->with("register_success", "Succeed to create the account, please login again");
-        dd($request);
     }
 }

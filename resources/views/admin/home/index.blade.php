@@ -6,7 +6,7 @@
         <!-- Dokter yang Bertugas -->
         <section class="bg-gradient-to-r from-[#C5BAFF] via-[#C5C5FF] to-[#C4D9FF] p-6 rounded-lg shadow-md">
             <div class="flex items-center space-x-4">
-                <img src="https://via.placeholder.com/100" alt="Dokter" class="w-24 h-24 rounded-full object-cover border-2 border-gray-300">
+                <img src="{{ asset('storage/img/doctor.jpg') }}" alt="Dokter" class="w-24 h-24">
                 <div>
                     <p class="text-lg font-semibold text-[#1E428A]">Dokter yang Bertugas</p>
                     <h2 class="text-2xl font-bold text-[#1E428A]">dr. Remy Alisa Cahyani</h2>

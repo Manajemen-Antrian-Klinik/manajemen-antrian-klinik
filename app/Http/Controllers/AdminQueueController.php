@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Queue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -38,12 +39,11 @@ class AdminQueueController extends Controller
                 'formatted' => $date->format('d F Y') . ($date->isToday() ? ' (Hari Ini)' : '')
             ]);
         }
-
         return view('admin.antrian.index', [
             'title' => 'Manajemen Antrian',
             'queues' => $queues, // Daftar antrian untuk tanggal yang dipilih
             'availableDates' => $availableDates, // Koleksi tanggal
-            'selectedDate' => Carbon::parse($selectedDate) // Tanggal yang sedang dipilih
+            'selectedDate' => Carbon::parse($selectedDate), // Tanggal yang sedang dipilih
         ]);
     }
 
@@ -115,53 +115,4 @@ class AdminQueueController extends Controller
         
         return back()->with('success', 'Antrian berhasil dihapus');
     }
-    
-        // public function edit(Queue $queue)
-    // {
-    //     return view('admin.queue.edit', compact('queue'));
-    // }
-    
-    // public function update(Request $request, Queue $queue)
-    // {
-    //     $validated = $request->validate([
-    //         'queue_number' => 'required|numeric',
-    //         'status' => 'required|in:menunggu,sedang_diperiksa,selesai'
-    //     ]);
-        
-    //     $queue->update($validated);
-        
-    //     return redirect()->route('admin.queue.index')
-    //         ->with('success', 'Antrian berhasil diperbarui');
-    // }
-    
-    // public function store(Request $request)
-    // {
-    //     // Validasi input
-    //     $validated = $request->validate([
-    //         'patient_id' => 'required|exists:patients,id',
-    //         'complaint' => 'required|string',
-    //     ]);
-        
-    //     // Ambil tanggal antrian dari parameter
-    //     $date = Carbon::parse($request->date);
-        
-    //     // Hitung nomor antrian untuk tanggal tersebut
-    //     $queueCount = Queue::whereDate('date', $date->format('Y-m-d'))->count();
-    //     $queueNumber = 'Q-' . $date->format('Ymd') . '-' . str_pad($queueCount + 1, 3, '0', STR_PAD_LEFT);
-        
-    //     // Buat antrian baru
-    //     $queue = Queue::create([
-    //         'patient_id' => $request->patient_id,
-    //         'queue_number' => $queueNumber,
-    //         'date' => $date->format('Y-m-d'),
-    //         'status' => 'Menunggu',
-    //         'complaint' => $request->complaint,
-    //     ]);
-        
-    //     // Buat pembayaran otomatis untuk antrian ini
-    //     AdminPaymentController::createPaymentForQueue($queue);
-        
-    //     return redirect()->route('admin.antrian.index', ['date' => $date->format('Y-m-d')])
-    //         ->with('success', 'Antrian berhasil ditambahkan');
-    // }
 }

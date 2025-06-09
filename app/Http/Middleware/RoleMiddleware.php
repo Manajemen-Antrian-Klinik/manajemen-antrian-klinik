@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class RoleMiddleware
 {
     /**
      * Handle an incoming request.
@@ -19,12 +19,17 @@ class AdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-{
-    if (Auth::check() && Auth::user()->type == 'admin') {
+    public function handle(Request $request, Closure $next, ...$types): Response
+    {
+        if(!Auth::check()) {
+            return redirect('/login')->with('error', 'You must be logged in to access this page.');
+        }
+
+        $user = Auth::user();
+
+        if(!in_array($user->type, $types)) {
+            abort(403, 'Unauthorized action.');
+        }
         return $next($request);
     }
-    
-    return redirect('/login-adm')->with('error', 'Akses ditolak!');
-}
 }

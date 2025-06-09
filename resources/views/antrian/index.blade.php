@@ -70,7 +70,7 @@
     </div>
 
     <!-- Modal Popup Form Keluhan -->
-    <div id="complaintModal" class="fixed inset-0 bg-gray-900/20 flex items-center justify-center hidden z-50 backdrop-blur-sm">
+    <div id="complaintModal" class="fixed inset-0 bg-gray-900/20  items-center justify-center hidden z-50 backdrop-blur-sm">
         <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-xl">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold" id="modalDateTitle"></h3>
@@ -99,11 +99,16 @@
             
             title.textContent = `Antrian untuk ${formattedDate}`;
             form.action = `/queue/store/${date}`; // Arahkan ke route store
+
             modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
 
         function hideModal() {
-            document.getElementById('complaintModal').classList.add('hidden');
+            const modal = document.getElementById('complaintModal');
+
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         }
 
         // Tutup modal saat klik di luar

@@ -80,7 +80,7 @@
                     <div class="flex items-center justify-between">
                         <label for="password" class="block text-xl font-medium text-gray-900">Password</label>
                         <div class="text-sm">
-                            <a href="#" class="font-semibold text-gray-900 hover:text-indigo-500">Forgot password?</a>
+                            <a href="/forgot-password" class="font-semibold text-gray-900 hover:text-indigo-500">Forgot password?</a>
                         </div>
                     </div>
                     <div class="mt-2">
@@ -120,6 +120,14 @@
                     }
                 });
             });
+
+            // Menyembunyikan pemberitahuan setelah 5 detik
+            setTimeout(function() {
+                const alertBox = document.querySelector("#register_alert, #login_alert");
+                if (alertBox) {
+                    alertBox.style.display = 'none';
+                }
+            }, 5000);  // 5000ms = 5 detik
         });
     </script>
 </body>

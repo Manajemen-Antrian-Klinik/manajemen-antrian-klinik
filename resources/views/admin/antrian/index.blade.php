@@ -5,20 +5,23 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold">Manajemen Antrian</h1>
         
-        <!-- Dropdown Pilih Tanggal -->
-        <div class="relative">
-            <select id="date-selector" class="block appearance-none bg-blue-200 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500">
-                @foreach($availableDates as $dateItem)
-                <option value="{{ $dateItem['date']->format('Y-m-d') }}" 
-                    {{ $dateItem['date']->format('Y-m-d') === $selectedDate->format('Y-m-d') ? 'selected' : '' }}>
-                    {{ $dateItem['formatted'] }}
-                </option>
-                @endforeach
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                </svg>
+        <div class="flex space-x-4 items-center">
+            
+            <!-- Dropdown Pilih Tanggal -->
+            <div class="relative">
+                <select id="date-selector" class="block appearance-none bg-blue-200 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500">
+                    @foreach($availableDates as $dateItem)
+                    <option value="{{ $dateItem['date']->format('Y-m-d') }}" 
+                        {{ $dateItem['date']->format('Y-m-d') === $selectedDate->format('Y-m-d') ? 'selected' : '' }}>
+                        {{ $dateItem['formatted'] }}
+                    </option>
+                    @endforeach
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>

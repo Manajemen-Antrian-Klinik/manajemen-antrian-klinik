@@ -54,7 +54,7 @@
                         <div class="mt-1">
                             <input type="text" name="name" id="name" autofocus required placeholder="Name" value="{{ old('name') }}"
                                 class="@error('name') is-invalid @enderror 
-                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
                         </div>
                     </div>
                     @error('name')
@@ -70,7 +70,7 @@
                         <div class="mt-1">
                             <input type="email" name="email" id="email" autocomplete="email" required placeholder="Email" value="{{ old('email') }}"
                                 class="@error('email') is-invalid @enderror 
-                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
                         </div> 
                     </div>
                     @error('email')
@@ -84,7 +84,7 @@
                         <div class="mt-1">
                             <input type="password" name="password" id="password" autocomplete="current-password" required placeholder="Password" value="{{ old('password') }}"
                                 class="@error('password') is-invalid @enderror
-                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
                         </div>
                     </div>
                     @error('password')
@@ -94,14 +94,14 @@
                     @enderror
                     
                     <div>
-                        <label for="password" class="block text-xl/6 font-medium text-gray-900">ConfirmPassword</label>
+                        <label for="password_confirmation" class="block text-xl/6 font-medium text-gray-900">ConfirmPassword</label>
                         <div class="mt-1">
-                            <input type="password" name="repeat_password" id="repeat_password" autocomplete="current-password" required placeholder="Confirm Password" value="{{ old('name') }}"
+                            <input type="password" name="password_confirmation" id="password_confirmation" autocomplete="current-password" required placeholder="Confirm Password" value="{{ old('password_confirmation') }}"
                                 class="@error('repeat_password') is-invalid @enderror
-                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                block w-full rounded-md bg-[#C5BAFF4D] px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm">
                         </div>
                     </div>
-                    @error('repeat_password')
+                    @error('password_confirmation')
                         <div class="alert-danger mb-2 -mt-5 text-red-400 text-xs">
                             {{ $message }}
                         </div>
